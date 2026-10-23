@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232F4A3C'/><text x='16' y='22' font-family='Georgia,serif' font-size='14' fill='%23FBF8F3' text-anchor='middle'>PD</text></svg>">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prenota Diretto — il kit per agriturismi e B&amp;B</title>
+<meta name="description" content="Un kit pratico per agriturismi e B&B: pagina di prenotazione pronta, email, messaggi WhatsApp e scheda Google. 29 € una volta sola, senza abbonamento.">
+<meta property="og:title" content="Prenota Diretto — il kit per agriturismi e B&B">
+<meta property="og:description" content="Meno commissioni a Booking, più prenotazioni dirette. Nove strumenti pronti, 29 € una volta sola.">
+<meta property="og:type" content="product">
+<meta property="og:image" content="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1200&q=80">
+<meta name="theme-color" content="#2F4A3C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBF8F3;--ink:#1C1B18;--muted:#6B655C;--line:#E2DBD0;--forest:#2F4A3C;--forest-d:#253B30;--brass:#A8763E;--paper:#fff;--sand:#F2ECE1}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:400;line-height:1.1;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(2.4rem,5vw,3.9rem)}
+h2{font-size:clamp(1.8rem,3.2vw,2.6rem)}
+h3{font-size:1.1rem;line-height:1.35}
+p{margin:0 0 16px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:600;margin:0 0 14px}
+.lead{font-size:1.1rem;color:#3A362F;line-height:1.65}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--forest);color:#fff;padding:15px 28px;border-radius:999px;font-weight:500;font-size:.97rem;border:1px solid var(--forest);cursor:pointer;transition:transform .18s ease,background .18s ease;font-family:inherit}
+.btn:hover{background:var(--forest-d);transform:translateY(-1px)}
+.btn.big{padding:17px 32px;font-size:1rem}
+.btn.ghost{background:transparent;color:var(--ink);border-color:#CFC6B8}
+.btn.ghost:hover{background:#fff}
+.micro{font-size:.82rem;color:var(--muted);margin-top:12px}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(251,248,243,.94);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:70px;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:Fraunces,serif;font-size:1.15rem;white-space:nowrap}
+.logo i{width:30px;height:30px;border-radius:50%;background:var(--forest);color:#fff;display:grid;place-items:center;font-style:normal;font-size:.76rem;font-family:Inter,sans-serif;font-weight:600}
+.nav-links{display:flex;gap:24px;font-size:.9rem;color:var(--muted)}
+.nav-links a:hover{color:var(--ink)}
+.nav .btn{padding:11px 20px;font-size:.86rem;white-space:nowrap}
+
+/* HERO */
+.hero{padding:60px 0 68px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;top:-160px;right:-140px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#EDE5D7,#FBF8F3 70%);z-index:0}
+.hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:52px;align-items:center;position:relative;z-index:1}
+.hero .lead{max-width:520px;margin-top:20px}
+.hero .cta-row{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;align-items:center}
+
+/* CALC */
+.calc{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:26px;box-shadow:0 24px 60px -34px rgba(28,27,24,.4)}
+.calc h4{font-family:Fraunces,serif;font-weight:400;font-size:1.25rem;margin:0 0 4px}
+.calc .hint{font-size:.8rem;color:var(--muted);margin:0 0 18px}
+.calc label{display:block;font-size:10.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.calc input{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:6px;font:500 15px Inter,sans-serif;background:#FCFAF6;color:var(--ink);margin-bottom:14px}
+.calc input:focus{outline:2px solid var(--forest);outline-offset:1px}
+.calc .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.calc-out{background:var(--forest);color:#fff;border-radius:6px;padding:18px 20px;margin-top:4px}
+.calc-out span{display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#CBBFA6;margin-bottom:4px}
+.calc-out b{font-family:Fraunces,serif;font-weight:400;font-size:2rem;line-height:1;letter-spacing:-.02em}
+.calc-out small{display:block;font-size:.76rem;color:#CBBFA6;margin-top:8px;line-height:1.5}
+
+/* STRIP */
+.strip{background:var(--forest);color:#F3EFE6;padding:16px 0}
+.strip-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.85rem;align-items:center}
+.strip b{color:#fff;font-weight:500}
+
+/* SECTIONS */
+section.block{padding:88px 0;scroll-margin-top:86px}
+section.alt{background:var(--sand)}
+.sec-head{max-width:660px;margin-bottom:44px}
+.sec-head p{color:var(--muted);margin-top:14px;font-size:1rem}
+
+/* INCLUDED */
+.inc{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.inc-item{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:24px 22px;display:flex;flex-direction:column}
+.inc-item .n{font-family:Fraunces,serif;color:var(--brass);font-size:.95rem;letter-spacing:.08em;margin-bottom:12px}
+.inc-item h3{font-size:1.02rem;margin-bottom:8px}
+.inc-item p{font-size:.88rem;color:var(--muted);margin:0}
+.inc-item .tag{margin-top:14px;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--forest);font-weight:600}
+
+/* PREVIEW */
+.prev{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.frame{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:0 30px 70px -44px rgba(28,27,24,.45)}
+.frame-bar{display:flex;align-items:center;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line);background:#F7F3EC}
+.frame-bar i{width:9px;height:9px;border-radius:50%;background:#D9D2C4;display:block}
+.frame-bar span{margin-left:8px;font-size:.68rem;color:var(--muted);background:#EDE7DB;padding:3px 10px;border-radius:99px}
+.frame img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.frame-txt{padding:16px 18px 20px}
+.frame-txt b{font-family:Fraunces,serif;font-weight:400;font-size:1.02rem;display:block;margin-bottom:4px}
+.frame-txt small{color:var(--muted);font-size:.76rem}
+.quote{font-family:Fraunces,serif;font-size:1.35rem;line-height:1.4;border-left:2px solid var(--brass);padding-left:20px;margin:26px 0;color:#2A2721}
+
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.step{border-top:2px solid var(--forest);padding-top:20px}
+.step span{font-family:Fraunces,serif;font-size:2.3rem;color:#D8CFC0;line-height:1;display:block;margin-bottom:10px}
+.step h3{margin-bottom:8px}
+.step p{font-size:.92rem;color:var(--muted)}
+
+/* AUTHOR */
+.author{display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;align-items:center}
+.author-card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:32px}
+.avatar{width:58px;height:58px;border-radius:50%;background:var(--forest);color:#fff;display:grid;place-items:center;font-family:Fraunces,serif;font-size:1.25rem;margin-bottom:16px}
+.author-card p{font-size:.92rem;color:#3A362F}
+.author-card .role{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);font-weight:600;margin-bottom:12px}
+
+/* PRICE */
+.price-sec{background:var(--forest);color:#F3EFE6}
+.price-sec h2{color:#fff}
+.price-sec .eyebrow{color:#C9A46B}
+.price-box{background:#fff;color:var(--ink);border-radius:10px;padding:34px;max-width:520px;margin:0 auto;text-align:center}
+.price-box .amount{font-family:Fraunces,serif;font-size:4.2rem;line-height:1;letter-spacing:-.03em;margin:6px 0 4px}
+.price-box .amount small{font-size:1.1rem;font-family:Inter,sans-serif;letter-spacing:0;color:var(--muted);font-weight:400}
+.price-box .once{font-size:.82rem;color:var(--muted);margin-bottom:22px}
+.price-box ul{list-style:none;padding:0;margin:24px 0;text-align:left;font-size:.9rem}
+.price-box li{display:flex;gap:10px;padding:7px 0;border-bottom:1px solid var(--line)}
+.price-box li:last-child{border-bottom:0}
+.price-box li:before{content:"✓";color:var(--forest);font-weight:600;flex:none}
+.price-box .btn{width:100%}
+.price-box .guarantee{font-size:.78rem;color:var(--muted);margin-top:14px;line-height:1.5}
+.nots{font-size:.84rem;color:#CBBFA6}
+.nots b{color:#fff;font-weight:500}
+
+/* ORDER */
+.order{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:start}
+.order-info ol{padding-left:20px;margin:18px 0 0}
+.order-info li{margin-bottom:10px;font-size:.94rem;color:#3A362F}
+form{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:28px}
+form .f{display:grid;gap:14px}
+form label{display:block;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:6px}
+form input,form textarea{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:6px;font:400 15px Inter,sans-serif;background:#FCFAF6;color:var(--ink)}
+form input:focus,form textarea:focus{outline:2px solid var(--forest);outline-offset:1px}
+form .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.check{display:flex;gap:10px;align-items:flex-start;line-height:1.5}
+.check span{text-transform:none;letter-spacing:0;font-size:.8rem;font-weight:400;color:var(--muted)}
+.check input{width:16px;height:16px;flex:none;margin-top:2px;accent-color:var(--forest)}
+form button{margin-top:4px;background:var(--forest);color:#fff;border:0;padding:15px;border-radius:6px;font:600 15px Inter,sans-serif;cursor:pointer}
+form button:hover{background:var(--forest-d)}
+form button:disabled{opacity:.6;cursor:wait}
+.form-note{font-size:.75rem;color:var(--muted);margin:10px 0 0;line-height:1.5}
+.msg{display:none;border-radius:6px;padding:14px 16px;font-size:.9rem;margin-top:12px}
+.msg.ok{display:block;background:#E8F1EA;border:1px solid #B9D2BF;color:#1E3A26}
+.msg.err{display:block;background:#FBF0E6;border:1px solid #E3C4A4;color:#6B3E16}
+.msg a{text-decoration:underline;font-weight:500}
+
+/* FAQ */
+.faq{max-width:780px;margin:40px auto 0}
+details{border-bottom:1px solid var(--line);padding:19px 0}
+summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center;font-size:1rem}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-size:1.4rem;color:var(--brass);line-height:1}
+details[open] summary:after{content:"–"}
+details p{margin:13px 0 0;color:var(--muted);font-size:.93rem;max-width:660px}
+
+/* FINAL + FOOTER */
+.final{text-align:center;padding:88px 0}
+.final h2{max-width:700px;margin:0 auto 18px}
+.final p{max-width:500px;margin:0 auto 30px;color:var(--muted)}
+.foot{border-top:1px solid var(--line);padding:36px 0 52px;font-size:.8rem;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.foot a:hover{color:var(--ink)}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap}
+.foot strong{color:var(--ink);font-weight:500}
+
+.buy-short{display:none}
+
+@media(max-width:960px){
+  .hero-grid,.prev,.author,.order{grid-template-columns:1fr;gap:38px}
+  .inc{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .nav-links{display:none}
+  section.block{padding:60px 0}
+}
+@media(max-width:600px){
+  .inc{grid-template-columns:1fr}
+  .nav-in{height:62px;gap:10px}
+  .logo{font-size:1rem;gap:8px}
+  .logo i{width:27px;height:27px;font-size:.68rem}
+  .nav .btn{padding:10px 14px;font-size:.8rem}
+  .buy-long{display:none}
+  .buy-short{display:inline}
+  .hero{padding:40px 0 52px}
+  .calc .two,.hero .cta-row .btn,form .two{grid-template-columns:1fr;width:100%}
+  .hero .cta-row .btn{width:100%}
+  .price-box{padding:24px}
+  .price-box .amount{font-size:3.3rem}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#" class="logo"><i>PD</i> Prenota Diretto</a>
+    <nav class="nav-links">
+      <a href="#dentro">Cosa c'è dentro</a>
+      <a href="#come">Come funziona</a>
+      <a href="#prezzo">Prezzo</a>
+      <a href="#faq">Domande</a>
+    </nav>
+    <a class="btn" href="#ordina"><span class="buy-long">Prendi il kit — 29 €</span><span class="buy-short">Kit — 29 €</span></a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Per agriturismi e B&amp;B · Italia</p>
+      <h1>Quanto lasci a Booking, ogni anno?</h1>
+      <p class="lead">Quasi sempre il 15%. Su una piccola struttura sono migliaia di euro. Questo kit ti aiuta a portare una parte di quelle prenotazioni sul tuo sito, senza agenzia e senza abbonamenti.</p>
+      <div class="cta-row">
+        <a class="btn big" href="#ordina">Prendi il kit — 29 €</a>
+        <a class="btn ghost" href="#dentro">Vedi cosa c'è dentro</a>
+      </div>
+      <p class="micro">Paghi una volta sola · Aggiornamenti inclusi · 14 giorni per cambiare idea</p>
+    </div>
+
+    <div class="calc">
+      <h4>Fai il conto in 10 secondi</h4>
+      <p class="hint">Inserisci i tuoi numeri. Non salviamo niente.</p>
+      <label for="notti">Notti vendute all'anno (tutte le camere)</label>
+      <input type="number" id="notti" value="430" min="10" max="20000" step="10">
+      <div class="two">
+        <div>
+          <label for="prezzo">Prezzo medio a notte</label>
+          <input type="number" id="prezzo" value="95" min="20" max="1500" step="5">
+        </div>
+        <div>
+          <label for="comm">Commissione</label>
+          <input type="number" id="comm" value="15" min="5" max="30" step="1">
+        </div>
+      </div>
+      <div class="calc-out">
+        <span>Commissioni stimate all'anno</span>
+        <b id="out">€ 6.128</b>
+        <small>Il kit costa 29 €. Si ripaga con una sola notte spostata da Booking al tuo sito.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap strip-in">
+    <span><b>9 strumenti</b> pronti da usare</span>
+    <span>Pagina di prenotazione <b>già scritta</b></span>
+    <span>Niente software da imparare</span>
+    <span><b>29 €</b> una volta sola</span>
+  </div>
+</div>
+
+<!-- COSA C'E' DENTRO -->
+<section class="block" id="dentro">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Cosa ricevi</p>
+      <h2>Nove file. Nessun video da guardare.</h2>
+      <p>Non è un corso. Sono file che apri, cambi e usi lo stesso giorno. La guida spiega il perché, gli strumenti fanno il lavoro.</p>
+    </div>
+    <div class="inc">
+      <article class="inc-item">
+        <span class="n">01</span>
+        <h3>La guida, 7 capitoli</h3>
+        <p>Quanto ti costa Booking davvero, la regola che ti vieta i prezzi più bassi, come si scrive una pagina che fa prenotare, gli errori che costano soldi.</p>
+        <span class="tag">Da leggere una volta</span>
+      </article>
+      <article class="inc-item">
+        <span class="n">02</span>
+        <h3>La pagina di prenotazione</h3>
+        <p>Un modello già scritto e già pronto per il telefono. Cambi nome, numero, foto e recensioni: è online in 40 minuti.</p>
+        <span class="tag">Il pezzo che vale il prezzo</span>
+      </article>
+      <article class="inc-item">
+        <span class="n">03</span>
+        <h3>Il calcolatore</h3>
+        <p>Inserisci notti e prezzo medio. Vedi quanto perdi all'anno e quanto recuperi spostando il 10, il 15 o il 25%.</p>
+        <span class="tag">Funziona anche offline</span>
+      </article>
+      <article class="inc-item">
+        <span class="n">04</span>
+        <h3>5 email pronte</h3>
+        <p>Benvenuto, pre-arrivo, dopo il soggiorno, invito a tornare, lista d'attesa. Con oggetto e testo da copiare.</p>
+      </article>
+      <article class="inc-item">
+        <span class="n">05</span>
+        <h3>6 messaggi WhatsApp</h3>
+        <p>Dalla conferma alla recensione, più il messaggio di novembre che riapre le prenotazioni. Con le cose da non scrivere mai.</p>
+      </article>
+      <article class="inc-item">
+        <span class="n">06</span>
+        <h3>Scheda Google in 12 punti</h3>
+        <p>La checklist da fare in un'ora, con i modelli di risposta alle recensioni. È la parte gratis che quasi nessuno sistema.</p>
+      </article>
+      <article class="inc-item">
+        <span class="n">07</span>
+        <h3>12 foto col telefono</h3>
+        <p>Quali scatti servono, a che ora farli, cosa togliere dall'inquadratura. Con le istruzioni per non far caricare il sito in 10 secondi.</p>
+      </article>
+      <article class="inc-item">
+        <span class="n">08</span>
+        <h3>Prezzi e pacchetti</h3>
+        <p>Come guadagnare di più senza scontare, cosa far pagare a parte, come chiedere la caparra. Con tre pacchetti che non ti costano quasi niente.</p>
+      </article>
+      <article class="inc-item">
+        <span class="n">09</span>
+        <h3>Piano di 30 giorni</h3>
+        <p>Un'ora al giorno, cinque giorni a settimana. Cosa fare, in che ordine, e i quattro numeri da guardare a fine mese.</p>
+        <span class="tag">Parti da qui</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ANTEPRIMA -->
+<section class="block alt">
+  <div class="wrap prev">
+    <div>
+      <p class="eyebrow">Anteprima vera</p>
+      <h2>La pagina è già scritta. Tu metti le tue cose.</h2>
+      <p class="lead" style="margin-top:16px">Sette blocchi, nell'ordine in cui il cliente si fa le domande: dove sei, cosa vedo, quanto costa, perché proprio te, chi è già stato, come prenoto, cosa mi blocca.</p>
+      <p>Non devi scegliere font, colori o spaziature. Apri il file, cambi nome, foto e recensioni vere. Il resto è già fatto.</p>
+      <p style="font-size:.86rem;color:var(--muted)">È un file HTML singolo: funziona su Netlify o su qualsiasi hosting. Non serve WordPress.</p>
+      <p><a href="anteprima.html" style="color:var(--forest);text-decoration:underline;font-weight:500">Leggi il primo capitolo della guida →</a></p>
+    </div>
+    <div class="frame">
+      <div class="frame-bar"><i></i><i></i><i></i><span>esempio di pagina</span></div>
+      <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1200&q=80" alt="Esempio della pagina di prenotazione inclusa nel kit">
+      <div class="frame-txt">
+        <b>Tre camere, un bosco, e nient'altro intorno.</b>
+        <small>Agriturismo · esempio di pagina con i tuoi contenuti</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COME FUNZIONA -->
+<section class="block" id="come">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Come funziona</p>
+      <h2>Tre passi, una settimana.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span>01</span>
+        <h3>Calcola quanto perdi</h3>
+        <p>Apri il calcolatore e inserisci le tue notti e il tuo prezzo medio. Hai un numero preciso, non una sensazione.</p>
+      </div>
+      <div class="step">
+        <span>02</span>
+        <h3>Pubblica la pagina</h3>
+        <p>Cambi nome, numero, foto e recensioni. Trascini la cartella su Netlify e hai un link in tre minuti.</p>
+      </div>
+      <div class="step">
+        <span>03</span>
+        <h3>Scrivi a chi ti conosce</h3>
+        <p>Mandi le email agli ospiti degli ultimi due anni. La prima prenotazione diretta arriva da lì, non dagli sconosciuti.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHI SONO -->
+<section class="block alt">
+  <div class="wrap author">
+    <div class="author-card">
+      <div class="avatar">AK</div>
+      <p class="role">Chi ha fatto il kit</p>
+      <p>Sono Ahsen Kurtoski e faccio siti per strutture ricettive in provincia di Belluno.</p>
+      <p>Ho passato mesi a girare per agriturismi e B&amp;B della Valbelluna. La frase che sento sempre è la stessa: «tanto Booking mi porta i clienti».</p>
+      <p>È vera. Ed è anche il motivo per cui ogni anno il 15% se ne va.</p>
+      <p style="margin-bottom:0">Questo kit è quello che avrei voluto lasciare a ognuno di loro, invece di un preventivo per un sito nuovo.</p>
+    </div>
+    <div>
+      <p class="eyebrow">Perché fidarti</p>
+      <h2>Non vendo corsi. Vendo quello che uso.</h2>
+      <p class="lead" style="margin-top:16px">La pagina nel kit è la stessa struttura che costruisco per i clienti. Le email sono quelle che scrivo per loro. Il piano di 30 giorni è quello che seguo io, nella stessa provincia.</p>
+      <p>Non ho un abbonamento da venderti, non ho una community da riempire e non ho un videocorso da registrare. Ti do i file e ti dico cosa fare, passo per passo.</p>
+      <p style="font-size:.88rem;color:var(--muted)">Se una cosa non è chiara, scrivimi: la sistemo e aggiorno il file per tutti.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREZZO -->
+<section class="block price-sec" id="prezzo">
+  <div class="wrap">
+    <div style="text-align:center;max-width:640px;margin:0 auto 40px">
+      <p class="eyebrow">Prezzo</p>
+      <h2>Una volta. Poi è tuo.</h2>
+      <p style="color:#D9D2C4;margin-top:14px">Nessun rinnovo, nessun piano base che diventa inutile, nessuna chiamata di vendita.</p>
+    </div>
+    <div class="price-box">
+      <div style="font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:600">Kit completo</div>
+      <div class="amount">29 <small>€</small></div>
+      <div class="once">una volta sola, IVA inclusa</div>
+      <ul>
+        <li>La guida completa, 7 capitoli</li>
+        <li>Il modello della pagina di prenotazione</li>
+        <li>Il calcolatore commissioni</li>
+        <li>5 email e 6 messaggi WhatsApp</li>
+        <li>Scheda Google, foto e prezzi</li>
+        <li>Piano di 30 giorni</li>
+        <li>Aggiornamenti della versione 1.x inclusi</li>
+      </ul>
+      <a class="btn big" href="#ordina">Prendi il kit — 29 €</a>
+      <p class="guarantee">Se entro 14 giorni non ti serve, scrivimi e ti rimborso. Non devi spiegare niente.</p>
+    </div>
+    <p class="nots" style="text-align:center;max-width:640px;margin:26px auto 0"><b>Non è</b> un gestionale, non è un sito con prenotazioni automatiche, non è una consulenza fiscale. È il kit per iniziare a portare prenotazioni dirette questa settimana.</p>
+  </div>
+</section>
+
+<!-- ORDINE -->
+<section class="block" id="ordina">
+  <div class="wrap order">
+    <div class="order-info">
+      <p class="eyebrow">Ordina</p>
+      <h2>Come ricevi il kit.</h2>
+      <p class="lead" style="margin-top:14px">Compili il modulo. Ti rispondo entro 24 ore con il link per pagare con carta o con i dati per il bonifico.</p>
+      <ol>
+        <li><strong>Compili il modulo</strong> con nome ed email.</li>
+        <li><strong>Ti mando il link di pagamento</strong> entro un giorno. 29 €, una volta sola.</li>
+        <li><strong>Appena paghi, ricevi lo ZIP</strong> con tutti i file e la guida in PDF.</li>
+      </ol>
+      <p style="font-size:.86rem;color:var(--muted);margin-top:20px">La fattura o la ricevuta te la manda il venditore insieme alla conferma. Se hai una partita IVA, dimmelo nel messaggio: la fattura è elettronica.</p>
+    </div>
+
+    <form name="ordine" method="POST" action="https://formsubmit.co/cshop0784@gmail.com" id="orderForm" novalidate>
+      <input type="hidden" name="_subject" value="Nuovo ordine — Prenota Diretto (29 €)">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://ahsenkurtoski.github.io/prenota-diretto/grazie.html">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="f">
+        <div class="two">
+          <div>
+            <label for="nome">Nome e cognome</label>
+            <input id="nome" name="nome" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div>
+          <label for="struttura">Nome della struttura (facoltativo)</label>
+          <input id="struttura" name="struttura" autocomplete="organization">
+        </div>
+        <div>
+          <label for="messaggio">Messaggio (facoltativo)</label>
+          <textarea id="messaggio" name="messaggio" rows="3" placeholder="Partita IVA, domande, esigenze…"></textarea>
+        </div>
+        <label class="check" for="privacy">
+          <input type="checkbox" id="privacy" name="privacy" value="si" required>
+          <span>Ho letto la <a href="privacy.html" style="color:var(--forest);text-decoration:underline">privacy</a> e acconsento a essere contattato per completare l'ordine.</span>
+        </label>
+        <button type="submit" id="submitBtn">Invia la richiesta</button>
+        <p class="form-note">Nessun pagamento su questa pagina. Ti scrivo io con il link. Nessun abbonamento.</p>
+        <div class="msg" id="formMsg" role="status" aria-live="polite"></div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block alt" id="faq">
+  <div class="wrap">
+    <div style="text-align:center">
+      <p class="eyebrow">Domande</p>
+      <h2>Le cose che mi chiedono prima di comprare.</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Devo saper programmare?</summary>
+        <p>No. Le uniche cose da cambiare sono nome, numero di telefono, indirizzo e foto. Dentro il file ci sono i commenti che dicono dove mettere le mani. Se sai usare Word, sai fare anche questo.</p>
+      </details>
+      <details>
+        <summary>Funziona con il sito che ho già?</summary>
+        <p>Sì. Puoi usarlo come pagina di prenotazione separata, da collegare al sito che hai, oppure come sito completo se non ne hai uno.</p>
+      </details>
+      <details>
+        <summary>Serve un dominio a pagamento?</summary>
+        <p>Per iniziare no: Netlify ti dà un indirizzo gratuito. Un dominio tuo costa 10–15 € all'anno e si collega in cinque minuti. Le istruzioni sono dentro.</p>
+      </details>
+      <details>
+        <summary>Non ho foto professionali.</summary>
+        <p>Meglio otto foto vere fatte col telefono che venti foto prese da internet. Dentro c'è la checklist dei 12 scatti, con gli orari e le istruzioni per farle in un'ora.</p>
+      </details>
+      <details>
+        <summary>Ho già un sito: mi serve lo stesso?</summary>
+        <p>Guarda se la tua pagina di prenotazione si apre da telefono in meno di tre secondi e chiede solo nome, date e ospiti. Se la risposta è no, il kit serve. Se è sì, ti servono solo le email e la scheda Google.</p>
+      </details>
+      <details>
+        <summary>Come pago?</summary>
+        <p>Dopo il modulo ti mando un link per pagare con carta, oppure i dati per il bonifico. 29 € una volta sola, IVA inclusa. Nessun rinnovo.</p>
+      </details>
+      <details>
+        <summary>Ricevo aggiornamenti?</summary>
+        <p>Sì, quelli della versione 1.x sono inclusi e gratuiti. Se aggiorno un modello o un testo, ricevi il file nuovo senza pagare altro.</p>
+      </details>
+      <details>
+        <summary>Posso usarlo per più strutture?</summary>
+        <p>La licenza vale per una struttura. Se ne hai più di una, scrivimi nel modulo: troviamo una soluzione semplice.</p>
+      </details>
+      <details>
+        <summary>Ci sono costi nascosti?</summary>
+        <p>No. 29 € una volta. Hosting gratuito per iniziare, dominio facoltativo, nessun abbonamento a questo kit.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINALE -->
+<section class="final">
+  <div class="wrap">
+    <p class="eyebrow">Ultima cosa</p>
+    <h2>Il kit non funziona se resta in una cartella.</h2>
+    <p>Vale per la pagina pubblicata, per la recensione chiesta, per l'email mandata. Tutto il resto è preparazione.</p>
+    <a class="btn big" href="#ordina">Prendi il kit — 29 €</a>
+    <p class="micro" style="margin-top:14px">Una volta sola · 14 giorni per cambiare idea · Aggiornamenti inclusi</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <div style="font-family:Fraunces,serif;font-size:1rem;color:var(--ink);margin-bottom:6px">Prenota Diretto</div>
+      <div>© <span id="year">2026</span> Ahsen Kurtoski · <a href="https://ahsenkurtoski.vercel.app" target="_blank" rel="noopener">ahsenkurtoski.vercel.app</a></div>
+      <div style="margin-top:4px">Sito e kit realizzati da Ahsen Kurtoski.</div>
+    </div>
+    <div class="foot-links">
+      <a href="termini.html">Termini e condizioni</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="anteprima.html">Anteprima</a>
+      <a href="mailto:cshop0784@gmail.com">cshop0784@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const e = id => document.getElementById(id);
+
+/* calcolatore */
+function calc(){
+  const notti = Math.max(1, +e("notti").value || 1);
+  const prezzo = Math.max(1, +e("prezzo").value || 1);
+  const comm = Math.min(60, Math.max(1, +e("comm").value || 1));
+  const total = Math.round(notti * prezzo * comm / 100);
+  e("out").textContent = "€ " + String(total).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+["notti","prezzo","comm"].forEach(id => e(id).addEventListener("input", calc));
+calc();
+
+/* anno */
+e("year").textContent = new Date().getFullYear();
+
+/* nav */
+const nav = document.getElementById("nav");
+addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 8), { passive: true });
+
+/* ordine: invio diretto a FormSubmit; in anteprima locale apre l'email */
+const form = e("orderForm");
+const msg = e("formMsg");
+const btn = e("submitBtn");
+
+function show(kind, html){
+  msg.className = "msg " + kind;
+  msg.innerHTML = html;
+}
+
+form.addEventListener("submit", ev => {
+  if (!form.nome.value.trim() || !form.email.value.trim()){
+    ev.preventDefault();
+    show("err", "Scrivi nome ed email, per favore.");
+    return;
+  }
+  if (!form.privacy.checked){
+    ev.preventDefault();
+    show("err", "Serve il consenso per poterti rispondere.");
+    return;
+  }
+  if (location.protocol === "file:"){
+    ev.preventDefault();
+    const subject = encodeURIComponent("Ordine kit Prenota Diretto — 29 €");
+    const body = encodeURIComponent(
+      "Nome: " + form.nome.value + "\n" +
+      "Email: " + form.email.value + "\n" +
+      "Struttura: " + form.struttura.value + "\n" +
+      "Messaggio: " + form.messaggio.value
+    );
+    show("err", "Stai guardando l'anteprima locale: il modulo funziona solo online. <a href=\"mailto:cshop0784@gmail.com?subject=" + subject + "&body=" + body + "\">Aprimi l'email con i dati già scritti</a> e inviala: faccio partire l'ordine io.");
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = "Invio…";
+});
+
+addEventListener("pageshow", ev => {
+  if (ev.persisted){
+    btn.disabled = false;
+    btn.textContent = "Invia la richiesta";
+  }
+});
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Prenota Diretto — kit per agriturismi e B&B",
+  "description": "Guida, modello di pagina di prenotazione, calcolatore commissioni, email, messaggi WhatsApp, checklist Google e piano di 30 giorni per portare prenotazioni dirette.",
+  "brand": { "@type": "Brand", "name": "Prenota Diretto" },
+  "author": { "@type": "Person", "name": "Ahsen Kurtoski", "url": "https://ahsenkurtoski.vercel.app" },
+  "offers": {
+    "@type": "Offer",
+    "price": "29.00",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+</body>
+</html>
